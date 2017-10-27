@@ -8,6 +8,12 @@
   "command": {
     "init": {
       "exact": true
+    },
+    "publish": {
+      "ignore": [
+        "packages/tools",
+        "*.md"
+      ]
     }
   }
 }
