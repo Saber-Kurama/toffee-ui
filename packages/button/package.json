@@ -1,0 +1,28 @@
+{
+    "name": "toffee-ui-button",
+    "version": "0.0.1",
+    "description": "react ui ",
+    "main": "lib/index.js",
+    "module": "dist/index.esm.js",
+    "jsnext:main": "dist/index.esm.js",
+    "browser": "dist/index.umd.js",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://bitbucket.org/atlassian/atlaskit"
+    },
+    "dependencies": {
+        "react": "^16.0.0",
+        "react-dom": "^16.0.0",
+        "styled-components": "^2.2.1"
+    },
+    "devDependencies": {
+        "rollup": "^0.50.0",
+        "rollup-plugin-babel": "^3.0.2",
+        "rollup-plugin-commonjs": "^8.2.5",
+        "rollup-plugin-node-resolve": "^3.0.0",
+        "rollup-plugin-uglify":"^2.0.1",
+        "rollup-plugin-visualizer": "^0.3.1",
+        "toffee-ui-tools": "^0.0.1"
+    }
+}

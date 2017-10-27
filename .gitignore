@@ -1,0 +1,24 @@
+# Logs
+*.log
+lerna-debug.log
+npm-debug.log
+npm-debug.log.*
+yarn-error.log
+local.log
+
+docdev/
+
+# Dependency directories
+node_modules
+
+# JetBrains
+.idea
+.idea/
+
+# Visual Studio Code
+.vscode
+
+.DS_Store
+
+packages/**/lib
+packages/**/dist

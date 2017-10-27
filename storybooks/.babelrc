@@ -1,0 +1,28 @@
+{
+  "presets": [
+    ["env", {
+      "modules": false,
+      "targets": {
+        "browsers": ["> 5%", "last 2 versions", "not ie <= 8"]
+      },
+      "useBuiltIns": false
+    }],
+    "react"
+  ],
+  "plugins": [
+    "transform-class-properties", // 静态属性
+    ["transform-object-rest-spread", {"useBuiltIns": true}], // object 的解构
+    ["transform-react-jsx", {"useBuiltIns": true}], // jsx
+    ["transform-runtime", {"helpers": false, "polyfill": false, "regenerator": true}],
+    "transform-decorators-legacy", // 支持装饰器
+    "transform-function-bind", // bind 运算符
+    "styled-components"
+    //"styled-components-selector"
+  ],
+  "env": {
+    "test": {
+      "presets": ["env", "react"],
+      "plugins": ["istanbul"]
+    }
+  }
+}
