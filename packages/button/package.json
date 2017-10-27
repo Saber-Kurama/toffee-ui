@@ -1,6 +1,6 @@
 {
     "name": "toffee-ui-button",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "react ui ",
     "main": "lib/index.js",
     "module": "dist/index.esm.js",
@@ -26,7 +26,6 @@
         "rollup-plugin-commonjs": "^8.2.5",
         "rollup-plugin-node-resolve": "^3.0.0",
         "rollup-plugin-uglify": "^2.0.1",
-        "rollup-plugin-visualizer": "^0.3.1",
-        "toffee-ui-tools": "^0.0.1"
+        "rollup-plugin-visualizer": "^0.3.1"
     }
 }
