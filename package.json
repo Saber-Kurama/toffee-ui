@@ -11,6 +11,11 @@
         "npm": ">=3.8",
         "node": ">=6.1"
     },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Saber-Kurama/toffee-ui.git"
+    },
     "dependencies": {
         "react": "^16.0.0",
         "react-dom": "^16.0.0",
