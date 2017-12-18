@@ -2,8 +2,8 @@ const glob = require('glob');
 
 module.exports = function noop() {};
 module.exports.pitch = function pitch() {
-  console.log('??????????', process.cwd())  
-  console.log('process.env.PACKAGE', process.env.PACKAGE)  
+  console.log('>xxx')
+  console.log('process.env.PACKAGE', process.env.PACKAGE);
   // Since we no longer support building storybooks with from multiple packages, we can safely use
   // the current working directory to find which stories to fetch without loading them all
 
@@ -14,14 +14,10 @@ module.exports.pitch = function pitch() {
     `${__dirname}/../packages/${process.env.PACKAGE}` :
     process.cwd();
   const storiesPattern = `${packagesRoot}/stories/**/*-story.{j,t}s*(x)`;
-  console.log('storiesPatternstoriesPattern', storiesPattern)
-       const storybookFiles = glob.sync(storiesPattern, { cwd: __dirname });
-
-  console.log(`Loading ${storybookFiles.length} storybook files`);
-
+  const storybookFiles = glob.sync(storiesPattern, { cwd: __dirname });
   const storyRequireStatements = storybookFiles
-      .map(storyPath => `require(${JSON.stringify(storyPath)});`)
-      .join('\n');
-console.log('storyRequireStatements', storyRequireStatements)
+    .map(storyPath => `require(${JSON.stringify(storyPath)});`)
+    .join('\n');
+    
   return storyRequireStatements;
 };

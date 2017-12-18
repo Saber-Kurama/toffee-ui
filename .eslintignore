@@ -1,3 +1,4 @@
 node_modules/*.js
 packages/**/lib/
 packages/**/dist/
+storybooks

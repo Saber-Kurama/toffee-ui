@@ -9,7 +9,7 @@ if (process.argv[2]) {
   const pkgDir = path.join(__dirname, '..', '..', '..', 'packages', process.argv[2]);
   if (fs.existsSync(pkgDir)) {
     console.log(`CD'ing into directory ${pkgDir}`);
-    process.chdir(pkgDir);
+    // process.chdir(pkgDir);
   } else {
     console.error(`Could not find a package at "${pkgDir}"`);
     process.exit(1);
@@ -20,15 +20,16 @@ if (process.argv[2]) {
 //   process.exit(1);
 }
 
-var env = Object.assign({}, process.env);
-env.PACKAGE = 'button'
-childProcess.spawn('../../node_modules/.bin/start-storybook',
-  ['-c', '../../storybooks',
+const env = Object.assign({}, process.env);
+env.PACKAGE = 'button';
+childProcess.spawn(
+  './node_modules/.bin/start-storybook',
+  ['-c', 'storybooks',
     '-p', '3001'],
-  { stdio: 'inherit', env }
+  { stdio: 'inherit', env },
 ).on('error', (err) => {
-    console.error(err)
-    process.exit
+  console.error(err);
+  process.exit;
 });
 
 // childProcess.exec('../../node_modules/.bin/start-storybook -c ../../storybooks -p 3001',  {stdio: 'inherit'}, (error) => {

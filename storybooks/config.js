@@ -1,31 +1,29 @@
-import { configure, setAddon } from "@storybook/react";
-import { setOptions } from "@storybook/addon-options";
-import infoAddon from "@storybook/addon-info";
-
-console.log("???xxx");
+import { configure, setAddon } from '@storybook/react';
+import { setOptions } from '@storybook/addon-options';
+import infoAddon from '@storybook/addon-info';
 
 // const glob = require('glob');
 // const fs = require('fs');
-// import fs from 'fs'å
+// import fs from 'fs'
 
 setOptions({
-  name: "CRA Kitchen Sink",
+  name: 'CRA Kitchen Sink',
   url:
-    "https://github.com/storybooks/storybook/tree/master/examples/cra-kitchen-sink",
+    'https://github.com/storybooks/storybook/tree/master/examples/cra-kitchen-sink',
   goFullScreen: false,
   showLeftPanel: true,
   showDownPanel: true,
   showSearchBox: false,
-  downPanelInRight: true,
+  downPanelInRight: false,
   sortStoriesByKind: false,
-  hierarchySeparator: /\/|\./
+  hierarchySeparator: /\/|\./,
 });
 
 setAddon(infoAddon);
 
 function loadStories() {
   // require('./index');
-  require("./requireStories!./empty.js");
+  require('./requireStories!./empty.js');
   //   require('../src/stories/storybook-components');
 }
 

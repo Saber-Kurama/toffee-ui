@@ -1,6 +1,6 @@
 {
-    "name": "toffee-ui-button",
-    "version": "0.0.2",
+    "name": "toffee-ui-ripple",
+    "version": "0.0.0",
     "description": "react ui ",
     "main": "lib/index.js",
     "module": "dist/index.esm.js",
