@@ -5,6 +5,8 @@ export default {
   brand: {
     primary: '#108ee9',
     primary_tap: '#0e80d2',
+    accent: '#ff4081',
+    danger: '#f5222d',
   },
   // 文本颜色
   text: {
@@ -14,6 +16,14 @@ export default {
   // 背景色
   fill: {
     base: '#fff',
+  },
+  // 圆角
+  radius: {
+    md: 5,
+  },
+  // 边框色
+  border: {
+    color_base: '#ddd',
   },
   // 字体排版
   typography: {

@@ -4,15 +4,32 @@ import styled, { css } from 'styled-components';
 import theme, { setThemeValue, hairline } from 'toffee-ui-theme';
 import ButtonBase from 'toffee-ui-button-base';
 
+export const elevationTransition = css`
+box-shadow 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, z-index 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms
+`;
 const defaultTheme = theme.default;
 // 获取字体颜色
 const getColor = (props) => {
   let color = '#000';
-  if (props.color === 'default') {
-    color = setThemeValue(props.theme, defaultTheme, 'text.color_base');
+  if (props.type === 'flat') {
+    if (props.color === 'default') {
+      color = setThemeValue(props.theme, defaultTheme, 'text.color_base');
+    }
+    if (props.color === 'primary') {
+      color = setThemeValue(props.theme, defaultTheme, 'brand.primary');
+    }
+    if (props.color === 'accent') {
+      color = setThemeValue(props.theme, defaultTheme, 'brand.accent');
+    }
   } else {
-    color = setThemeValue(props.theme, defaultTheme, 'color_base_inverse');
+    if (props.color === 'default') {
+      color = setThemeValue(props.theme, defaultTheme, 'text.color_base');
+    }
+    if (props.color === 'primary' || props.color === 'accent') {
+      color = setThemeValue(props.theme, defaultTheme, 'text.color_base_inverse');
+    }
   }
+
   return css`
     color: ${color};
   `;
@@ -23,11 +40,33 @@ const getBackground = (props) => {
   if (props.color === 'default') {
     background = setThemeValue(props.theme, defaultTheme, 'fill.base');
   }
+  if (props.color === 'primary') {
+    background = setThemeValue(props.theme, defaultTheme, 'brand.primary');
+  }
+  if (props.color === 'accent') {
+    background = setThemeValue(props.theme, defaultTheme, 'brand.accent');
+  }
+  if (props.type === 'flat') {
+    background = 'transparent';
+  }
   return css`
     background: ${background};
   `;
 };
+// 获取 边框
+const getBorder = (props) => {
+  if (props.type === 'flat') {
+    return '';
+  }
+  const radius = setThemeValue(props.theme, defaultTheme, 'radius.md');
+  let color = null;
+  if (props.color === 'default') {
+    color = setThemeValue(props.theme, defaultTheme, 'border.color_base');
+  }
+  return hairline('all', color, radius);
+};
 console.log('hairline()', hairline());
+// transition: ${elevationTransition}, background-color 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 const ButtonBaseStyle = styled(ButtonBase)`
   box-sizing: border-box;
   padding: 0;
@@ -36,13 +75,11 @@ const ButtonBaseStyle = styled(ButtonBase)`
   font-size: ${props => setThemeValue(props.theme, defaultTheme, 'components.button.fontSize')};
   height: ${props => setThemeValue(props.theme, defaultTheme, 'components.button.height')};
   line-height: ${props => setThemeValue(props.theme, defaultTheme, 'components.button.height')};
-  border: 1PX solid #ddd;
-  border-radius: 5px;
   ${props => getColor(props)}
   ${props => getBackground(props)}
-  ${props => hairline(props)}
-  '&:hover':{
-
+  ${props => getBorder(props)}
+  &:hover :{
+    cursor: pointer;
   }
 `;
 
