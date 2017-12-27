@@ -21,7 +21,7 @@ if (process.argv[2]) {
 }
 
 const env = Object.assign({}, process.env);
-env.PACKAGE = 'button';
+env.PACKAGE = process.argv[2];
 childProcess.spawn(
   './node_modules/.bin/start-storybook',
   ['-c', 'storybooks',

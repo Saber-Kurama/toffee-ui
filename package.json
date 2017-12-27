@@ -15,6 +15,10 @@
         "type": "git",
         "url": "https://github.com/Saber-Kurama/toffee-ui.git"
     },
+    "private": false,
+    "workspaces": [
+        "packages/*"
+    ],
     "dependencies": {
         "prop-types": "^15.6.0",
         "react": "^16.0.0",

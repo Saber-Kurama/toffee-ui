@@ -10,8 +10,6 @@ export default function getButtonStyles() {
         outline: 0 none; 
         padding: 0 px;
         text-align: center;
-        height: 48px;
-        line-height: 48px;
         overflow: hidden;
         text-overflow: ellipsis; 
         word-break: break-word;

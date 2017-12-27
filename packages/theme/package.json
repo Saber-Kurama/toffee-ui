@@ -1,11 +1,12 @@
 {
-    "name": "toffee-ui-ripple",
+    "name": "toffee-ui-theme",
     "version": "0.0.0",
     "description": "react ui ",
     "main": "lib/index.js",
     "module": "dist/index.esm.js",
     "jsnext:main": "dist/index.esm.js",
     "browser": "dist/index.umd.js",
+    "tf:webpack:raw": "src/index.js",
     "license": "MIT",
     "repository": {
         "type": "git",
@@ -16,6 +17,7 @@
         "lib"
     ],
     "dependencies": {
+        "polished": "^1.9.0",
         "react": "^16.0.0",
         "react-dom": "^16.0.0",
         "prop-types": "^15.6.0",

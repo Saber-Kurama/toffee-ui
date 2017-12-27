@@ -15,13 +15,10 @@ const StyledLink = styled.a`
     border: 0;
     border-radius: 0;
     cursor: pointer;
-    user-select: none;
+    use-select: none;
     appearance: none;
     text-decoration: none;
     color: inherit;
-    &::-moz-focus-inner: {
-        border-style: none;
-    }
 `;
 StyledLink.displayName = 'StyledLink';
 class ButtonBase extends React.Component {
@@ -49,24 +46,11 @@ class ButtonBase extends React.Component {
     render() {
       const { children } = this.props;
       return (
-        <StyledLink
-          onMouseDown={this.handleMouseDown}
-          onMouseLeave={this.handleMouseLeave}
-          onMouseUp={this.handleMouseUp}
-          onTouchEnd={this.handleTouchEnd}
-          onTouchMove={this.handleTouchMove}
-          onTouchStart={this.handleTouchStart}
-          {...this.props}
-        >
-          {children}
-          <TouchRipple
-            innerRef={(node) => {
-              this.ripple = node;
-            }}
-          />
+        <StyledLink {...this.props}>
+          saber123122
         </StyledLink>
       );
     }
 }
 
-export default ButtonBase;
+export default styled(ButtonBase)``;

@@ -57,7 +57,7 @@ class TouchRipple extends React.Component {
       let rippleY;
       let rippleSize;
       if ((event.clientX === 0 && event.clientY === 0) ||
-          (event.clientX && !event.touches) // 这个是什么条件？(不支持触摸？)
+          (!event.clientX && !event.touches) // 没有 clientX 并且没有触摸
       ) {
         rippleX = Math.round(rect.width / 2);
         rippleY = Math.round(rect.height / 2);
