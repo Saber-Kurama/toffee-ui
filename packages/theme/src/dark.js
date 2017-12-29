@@ -1,3 +1,4 @@
+import shadows from './utils/shadows';
 // 先写 一部分  后面好好考虑
 const fontSizeBase = '14px';
 export default {
@@ -37,6 +38,8 @@ export default {
   spacing: {
 
   },
+  // 阴影
+  shadows,
   // 组件的一些设计
   components: {
     button: {

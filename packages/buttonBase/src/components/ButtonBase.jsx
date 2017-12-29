@@ -5,7 +5,7 @@ import styled, { keyframes } from 'styled-components';
 import createRippleHandler from './createRippleHandler';
 import TouchRipple from './TouchRipple';
 
-const StyledLink = styled.a`
+const StyledLink = styled.button`
     display: inline-flex;
     align-item: center;
     justify-content: center;
@@ -47,7 +47,7 @@ class ButtonBase extends React.Component {
     handleTouchEnd = createRippleHandler(this, 'TouchEnd', 'stop')
     handleTouchMove = createRippleHandler(this, 'TouchMove', 'stop')
     render() {
-      const { children } = this.props;
+      const { children, disabled, ...other } = this.props;
       return (
         <StyledLink
           onMouseDown={this.handleMouseDown}
@@ -56,17 +56,25 @@ class ButtonBase extends React.Component {
           onTouchEnd={this.handleTouchEnd}
           onTouchMove={this.handleTouchMove}
           onTouchStart={this.handleTouchStart}
-          {...this.props}
+          disabled={disabled}
+          {...other}
         >
           {children}
-          <TouchRipple
+          {!disabled && <TouchRipple
             innerRef={(node) => {
               this.ripple = node;
             }}
-          />
+          />}
         </StyledLink>
       );
     }
 }
-
+ButtonBase.propTypes = {
+  children: PropTypes.node,
+  disabled: PropTypes.bool,
+};
+ButtonBase.defaultProps = {
+  children: null,
+  disabled: false,
+};
 export default ButtonBase;
