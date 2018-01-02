@@ -6,7 +6,7 @@ const defaultTheme = theme.default;
 const defaultCss = css`
   box-shadow: ${props => setThemeValue(props.theme, defaultTheme, 'shadows')[2]};
   &:active {
-    box-shadow: ${props => setThemeValue(props.theme, defaultTheme, 'shadows')[10]};
+    box-shadow: ${props => setThemeValue(props.theme, defaultTheme, 'shadows')[8]};
   }
 `;
 export default defaultCss;

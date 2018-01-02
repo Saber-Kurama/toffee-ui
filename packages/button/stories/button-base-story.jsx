@@ -25,6 +25,20 @@ const DButton = styled.button`
     letter-spacing: 2px ;
   }
 `;
+const theme1 = {
+  brand: {
+    primary: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    primary_tap: '#0e80d2',
+    accent: '#ff4081',
+    danger: '#f5222d',
+  },
+};
+const RaiseButton1 = styled(RaiseButton)`
+  box-shadow: 0 3px 5px 2px rgba(255, 105, 135, .30);
+  &:active {
+    box-shadow: 0 3px 5px 2px rgba(255, 105, 135, .30);
+  }
+`;
 // const FlatButton = styled(Button)`
 //   color: #00C7E5;
 //   background: transparent;
@@ -63,5 +77,15 @@ storiesOf('Button', module)
     <FabButton primary disabled>primary的button</FabButton>, <Hr />,
     <FabButton accent>accent的button</FabButton>, <Hr />,
     <FabButton accent disabled>accent的button</FabButton>, <Hr />,
-  ]);
+  ])
+  .add('渐变色系 类型按钮', () =>
+    (<ThemeProvider theme={theme1}>
+      <div>
+        <Button primary>default的button</Button>
+        <Hr />
+        <RaiseButton primary>primary的button</RaiseButton>
+        <Hr />
+        <RaiseButton1 primary>primary的button</RaiseButton1>
+      </div>
+    </ThemeProvider>));
 
