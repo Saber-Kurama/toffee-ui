@@ -4,7 +4,7 @@ import ButtonBase from '../src';
 
 storiesOf('Button', module)
 // .addDecorator(withKnobs)
-  .add('with text', () => <ButtonBase >正常的button</ButtonBase>);
+  .add('with text', () => <div >正常的button</div>);
 // .add('自定义样式', () => <MyButton>自定义样式</MyButton>)
 // .add('Logger', () => [<Button >正常的button</Button>, <Logger />, <MyLogger />])
 // .add('自定义样式 Logger', () => <MyLogger />)
