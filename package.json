@@ -1,0 +1,49 @@
+{
+  "name": "toffee-ui",
+  "version": "0.0.1",
+  "description": "react ui",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "start": "dumi dev",
+    "docs:build": "dumi build",
+    "docs:deploy": "gh-pages -d docs-dist",
+    "build": "father-build",
+    "deploy": "npm run docs:build && npm run docs:deploy",
+    "release": "npm run build && npm publish",
+    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage"
+  },
+  "files": [
+    "dist",
+    "lib",
+    "es"
+  ],
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "typings": "lib/index.d.ts",
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "dependencies": {
+    "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@umijs/test": "^3.4.22",
+    "dumi": "^1.1.18",
+    "father-build": "^1.19.5",
+    "gh-pages": "^3.2.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.0",
+    "yorkie": "^2.0.0"
+  }
+}
