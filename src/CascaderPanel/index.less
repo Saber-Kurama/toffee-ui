@@ -1,0 +1,47 @@
+@cascader-panel-prefix-cls: ~'tfe-cascader-panel';
+
+.@{cascader-panel-prefix-cls} {
+  &-menu-wrap {
+    display: flex;
+  }
+  &-menu {
+    display: block;
+    flex: 1;
+    height: 192px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-right: 1px solid #e9e9e9;
+    overflow: auto;
+    &:last-child {
+      border-right: 0;
+    }
+  }
+  /**
+    * node 的样式
+    */
+  &-menu-node {
+    height: 32px;
+    line-height: 32px;
+    padding: 0 16px;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all 0.3s ease;
+    position: relative;
+    color: red;
+    display: flex;
+    &:hover {
+      background: tint(#2db7f5, 90%);
+    }
+    &-content {
+      flex: 1;
+    }
+  }
+  &-menu-search {
+    &-action {
+      color: #2db7f5;
+    }
+  }
+}
