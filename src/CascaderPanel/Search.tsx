@@ -37,7 +37,7 @@ export default function Search(props: TransferSearchProps) {
   };
 
   return (
-    <>
+    <div style={{ position: 'relative' }}>
       <Input
         placeholder={placeholder}
         className={prefixCls}
@@ -54,6 +54,6 @@ export default function Search(props: TransferSearchProps) {
           <SearchOutlined />
         </span>
       )}
-    </>
+    </div>
   );
 }

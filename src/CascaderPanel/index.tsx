@@ -67,7 +67,6 @@ function CascaderPanel({
     activeValue: CascaderValueType,
     options: CascaderOptionType[],
   ) => {
-    debugger;
     return arrayTreeFilter(
       options || [],
       (o, level) => o['value'] === activeValue[level],
@@ -79,7 +78,6 @@ function CascaderPanel({
   };
   const getOption = useCallback(
     (menuIndex: number) => {
-      debugger;
       if (menuIndex === 0) {
         return options;
       }
@@ -109,6 +107,7 @@ function CascaderPanel({
           return (
             <Menu
               key={index}
+              prefixCls={prefixCls}
               options={optionsData}
               menuOptions={menuOption}
               menuIndex={index}

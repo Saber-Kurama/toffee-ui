@@ -13,17 +13,13 @@ interface IMenuProps {
     e: React.MouseEvent<HTMLElement>,
   ) => void;
 }
-function Menu({
-  prefixCls = 'tfe-cascader-panel',
-  options = [],
-  menuIndex,
-  onSelect,
-}: IMenuProps) {
+function Menu({ prefixCls, options = [], menuIndex, onSelect }: IMenuProps) {
   const ulCls = `${prefixCls}-menu`;
   return (
     <>
-      <div>
-        <Search />
+      <div className={ulCls}>
+        <div></div>
+        <Search prefixCls={`${ulCls}-search`} />
         <ul>
           {options.map((option, index) => {
             console.log('option?', option);
