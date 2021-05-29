@@ -83,7 +83,8 @@ function CascaderPanel({
       if (menuIndex === 0) {
         return options;
       }
-      return getActiveOptions(activeValue, options);
+      const activeOptions = getActiveOptions(activeValue, options);
+      return activeOptions[menuIndex - 1]?.children || [];
       // return [];
     },
     [activeValue, options],
