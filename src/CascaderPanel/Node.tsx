@@ -5,12 +5,16 @@ import type { CascaderOptionType } from './type';
 
 interface INodeProps {
   prefixCls?: string;
+  className?: string;
+  isActive?: boolean;
   onSelect?: (e: React.MouseEvent<HTMLElement>) => void;
   options?: CascaderOptionType;
 }
 
 function Node({
   prefixCls = 'tfe-cascader-panel',
+  className = '',
+  isActive = false,
   onSelect = () => {},
   options,
 }: INodeProps) {
@@ -29,10 +33,14 @@ function Node({
       );
     }
   }
+  if (isActive) {
+    nodeCls += ` ${prefixCls}-menu-node-active`;
+  }
+
   let loadingIconNode = null;
   return (
     <li
-      className={nodeCls}
+      className={`${nodeCls} ${className}`}
       onMouseDown={(e) => e.preventDefault()}
       onClick={onSelect}
     >

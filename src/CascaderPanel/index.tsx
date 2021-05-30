@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 // import arrayTreeFilter from 'array-tree-filter';
 import Menu from './Menu';
 import './index.less';
-import type { CascaderOptionType } from './type';
+import type { CascaderOptionType, CascaderValueType } from './type';
 
 function arrayTreeFilter<T>(
   data: T[],
@@ -30,8 +30,6 @@ function arrayTreeFilter<T>(
   } while (children.length > 0);
   return result;
 }
-
-export type CascaderValueType = (string | number)[];
 
 interface ICascaderPanelProps {
   prefixCls?: string;
@@ -109,6 +107,7 @@ function CascaderPanel({
               key={index}
               prefixCls={prefixCls}
               options={optionsData}
+              activeValue={activeValue}
               menuOptions={menuOption}
               menuIndex={index}
               onSelect={(targetOption, e) => {
@@ -117,9 +116,6 @@ function CascaderPanel({
             ></Menu>
           );
         })}
-        {/* <Menu />
-        <Menu />
-        <Menu /> */}
       </div>
       {/* <div>尾部</div> */}
     </div>

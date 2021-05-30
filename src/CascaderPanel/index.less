@@ -48,6 +48,13 @@
     &-content {
       flex: 1;
     }
+    &-active:not(&-disabled) {
+      &,
+      &:hover {
+        font-weight: 600;
+        background-color: #e6f7ff;
+      }
+    }
     &-expand {
       position: relative;
       &-icon {
