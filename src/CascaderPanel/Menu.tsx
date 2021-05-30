@@ -20,7 +20,7 @@ function Menu({ prefixCls, options = [], menuIndex, onSelect }: IMenuProps) {
       <div className={ulCls}>
         <div></div>
         <Search prefixCls={`${ulCls}-search`} />
-        <ul>
+        <ul className={`${prefixCls}-menu-ul`}>
           {options.map((option, index) => {
             console.log('option?', option);
             return (
