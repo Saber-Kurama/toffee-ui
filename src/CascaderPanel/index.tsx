@@ -43,6 +43,11 @@ interface ICascaderPanelProps {
   defaultValue?: CascaderValueType;
   /** menuOptions */
   menuOptions?: any[];
+  onChange?: (
+    value: CascaderValueType,
+    selectOptions: CascaderOptionType[],
+  ) => void;
+  loadData?: (selectOptions: CascaderOptionType[]) => void;
 }
 function CascaderPanel({
   prefixCls = 'tfe-cascader-panel',
@@ -52,6 +57,8 @@ function CascaderPanel({
   menuOptions = [],
   value,
   defaultValue = [],
+  onChange,
+  loadData,
 }: ICascaderPanelProps) {
   console.log('loadData', options);
   // 选中的值 (string[]) value的值组成的
@@ -91,9 +98,22 @@ function CascaderPanel({
       const newActiveValue = activeValue.slice(0, menuIndex + 1);
       newActiveValue[menuIndex] = targetOption?.value || '';
       setActiveValue(newActiveValue);
+      const activeOptions = getActiveOptions(newActiveValue, options);
+      handleChange(activeOptions);
+      if (!targetOption.children && loadData) {
+        loadData(activeOptions);
+        return;
+      }
     },
-    [activeValue],
+    [activeValue, options],
   );
+
+  const handleChange = (activeOptions: CascaderOptionType[] = []) => {
+    onChange?.(
+      activeOptions.map((option) => option?.value || ''),
+      activeOptions,
+    );
+  };
 
   return (
     <div className={`${prefixCls} ${className}`} style={style}>

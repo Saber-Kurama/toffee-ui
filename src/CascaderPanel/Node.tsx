@@ -1,5 +1,6 @@
 import React from 'react';
 import RightOutlined from '@ant-design/icons/RightOutlined';
+import RedoOutlined from '@ant-design/icons/RedoOutlined';
 import './index.less';
 import type { CascaderOptionType } from './type';
 
@@ -23,6 +24,11 @@ function Node({
   let expandIconNode = null;
   const hasChildren = options?.['children'] && options?.['children'].length > 0;
   const expandIcon = <RightOutlined />;
+  const loadingIcon = (
+    <span className={`${prefixCls}-menu-node-loading-icon`}>
+      <RedoOutlined spin />
+    </span>
+  );
   if (hasChildren || options?.isLeaf === false) {
     nodeCls += ` ${prefixCls}-menu-node-expand`;
     if (!options?.loading) {
@@ -36,8 +42,12 @@ function Node({
   if (isActive) {
     nodeCls += ` ${prefixCls}-menu-node-active`;
   }
-
+  console.log('options--Node', options);
   let loadingIconNode = null;
+  if (options?.loading) {
+    nodeCls += ` ${prefixCls}-menu-node-loading`;
+    loadingIconNode = loadingIcon || null;
+  }
   return (
     <li
       className={`${nodeCls} ${className}`}
@@ -47,6 +57,7 @@ function Node({
       {/* <div>leftIcon</div> */}
       <div className={nodeContentCls}>{options?.label || ''}</div>
       {expandIconNode}
+      {loadingIconNode}
     </li>
   );
 }

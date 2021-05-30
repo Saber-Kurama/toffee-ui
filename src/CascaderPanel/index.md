@@ -59,7 +59,16 @@ const menuOptions = [
   },
 ];
 
+const loadData = (selectedOptions) => {
+  const targetOption = selectedOptions[selectedOptions.length - 1];
+  targetOption.loading = true;
+  console.log('????--->', targetOption);
+};
 export default () => (
-  <CascaderPanel options={options} menuOptions={menuOptions} />
+  <CascaderPanel
+    options={options}
+    menuOptions={menuOptions}
+    loadData={loadData}
+  />
 );
 ```
