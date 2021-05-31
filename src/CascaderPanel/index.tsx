@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 // import arrayTreeFilter from 'array-tree-filter';
 import Menu from './Menu';
 import './index.less';
@@ -16,7 +16,6 @@ function arrayTreeFilter<T>(
   var children = data || [];
   var result: T[] = [];
   var level = 0;
-  console.log('children', children);
   do {
     var foundItem: T = children.filter(function (item) {
       return filterFn(item, level);
@@ -60,13 +59,17 @@ function CascaderPanel({
   onChange,
   loadData,
 }: ICascaderPanelProps) {
-  console.log('loadData', options);
   // 选中的值 (string[]) value的值组成的
   const [activeValue, setActiveValue] = useState(value || defaultValue || []);
-  console.log(
-    'arrayTreeFilter---',
-    arrayTreeFilter(options, (i) => true),
-  );
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  useEffect(() => {
+    if (mounted) {
+      setActiveValue(value || []);
+    }
+  }, [value]);
   // 获取选中节点后面的children
   const getActiveOptions = (
     activeValue: CascaderValueType,
@@ -121,7 +124,6 @@ function CascaderPanel({
       <div className={`${prefixCls}-menu-wrap`}>
         {menuOptions.map((menuOption, index) => {
           const optionsData = getOption(index);
-          console.log('optionsData', optionsData);
           return (
             <Menu
               key={index}

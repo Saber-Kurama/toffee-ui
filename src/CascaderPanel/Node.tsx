@@ -42,7 +42,6 @@ function Node({
   if (isActive) {
     nodeCls += ` ${prefixCls}-menu-node-active`;
   }
-  console.log('options--Node', options);
   let loadingIconNode = null;
   if (options?.loading) {
     nodeCls += ` ${prefixCls}-menu-node-loading`;

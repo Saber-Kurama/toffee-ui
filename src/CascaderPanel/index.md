@@ -15,7 +15,8 @@ import { CascaderPanel } from 'toffee-ui';
 const options = [
   {
     value: 'zhejiang',
-    label: 'Zhejiang',
+    label:
+      'ZhejiangZhejiangZhejiangZhejiangZhejiangZhejiangZhejiangZhejiangZhejiang',
     children: [
       {
         value: 'hangzhou',
@@ -49,7 +50,7 @@ const options = [
 
 const menuOptions = [
   {
-    label: '省',
+    label: '省省省省省省省省省省省省省省省省省省省省省省省省',
   },
   {
     label: '市',
@@ -66,6 +67,7 @@ const loadData = (selectedOptions) => {
 };
 export default () => (
   <CascaderPanel
+    style={{ height: 100 }}
     options={options}
     menuOptions={menuOptions}
     loadData={loadData}

@@ -7,6 +7,7 @@ interface IMenuProps {
   prefixCls?: string;
   /** index */
   menuIndex?: number;
+  menuOptions?: any;
   options?: CascaderOptionType[];
   activeValue?: CascaderValueType;
   onSelect?: (
@@ -19,13 +20,13 @@ function Menu({
   options = [],
   activeValue,
   menuIndex = 0,
+  menuOptions,
   onSelect,
 }: IMenuProps) {
   const ulCls = `${prefixCls}-menu`;
 
   const isActiveOption = useCallback(
     (option: CascaderOptionType, menuIndex: number): boolean => {
-      console.log('activeValue--', activeValue);
       return activeValue?.[menuIndex] === option?.value || false;
     },
     [activeValue],
@@ -62,7 +63,7 @@ function Menu({
   return (
     <>
       <div className={ulCls}>
-        <div></div>
+        <div className={`${ulCls}-label`}>{menuOptions?.label || ''}</div>
         <Search
           prefixCls={`${ulCls}-search`}
           value={searchValue}
@@ -71,7 +72,6 @@ function Menu({
         />
         <ul className={`${prefixCls}-menu-ul`}>
           {showNodes.map((option, index) => {
-            console.log('option?', option);
             const isActive = isActiveOption(option, menuIndex);
             return (
               <Node
