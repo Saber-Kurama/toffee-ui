@@ -53,7 +53,7 @@ function Menu({
     if (searchValue.length > 0) {
       setShowNodes(
         options.filter((option) => {
-          return `${option?.value || ''}`?.indexOf(searchValue) >= 0;
+          return `${option?.label || ''}`?.indexOf(searchValue) >= 0;
         }),
       );
     } else {
