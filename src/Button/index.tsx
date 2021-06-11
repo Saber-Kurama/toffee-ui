@@ -1,10 +1,11 @@
 import React from 'react';
+import AButton from 'antd/es/button';
 
 function Button() {
   return (
-    <div>
-      Button
-    </div>
+    <AButton prefixCls="tfe" className="ssa">
+      Buttonasdasd
+    </AButton>
   );
 }
 

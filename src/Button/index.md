@@ -10,9 +10,9 @@ Demo:
 
 ```tsx
 import React from 'react';
-import { Foo } from 'toffee-ui';
+import { Button } from 'toffee-ui';
 
-export default () => <Foo title="First Demo" />;
+export default () => <Button title="First Demo" />;
 ```
 
 More skills for writing demo: https://d.umijs.org/guide/demo-principle
