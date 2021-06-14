@@ -1,3 +1,5 @@
+// import tailwindcss from 'tailwindcss';
+
 const options = {
   extraBabelPlugins: [
     [
@@ -5,9 +7,14 @@ const options = {
       {
         libraryName: 'antd',
         libraryDirectory: 'es',
-        style: true,
+        style: false,
       },
     ],
+  ],
+  extraPostCSSPlugins: [
+    // tailwindcss({}),
+    require('tailwindcss')({}),
+    require('autoprefixer'),
   ],
   // cssModules: true,
   extractCSS: true,
